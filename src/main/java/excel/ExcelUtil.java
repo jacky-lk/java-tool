@@ -21,7 +21,10 @@ import org.apache.poi.util.IOUtils;
 /**
  * 参考：
  * https://opensource.afterturn.cn/doc/easypoi.html#10602
+ * 使用文档：
  * https://gitee.com/lemur/easypoi/blob/master/basedemo.md
+ * 测试项目：
+ * https://gitee.com/lemur/easypoi-test
  *
  * @author 陆昆
  **/
@@ -76,9 +79,15 @@ public class ExcelUtil {
         Workbook workbook = exportExcel(params, JobDTO.class, jobDTOS);
         if (workbook != null) {
             try {
-                workbook.write(new FileOutputStream(new File("")));
+                workbook.write(new FileOutputStream(new File("/Users/lukun/Downloads/test2.xls")));
             } catch (IOException e) {
 
+            } finally {
+                try {
+                    workbook.close();
+                } catch (IOException e) {
+
+                }
             }
         }
     }
